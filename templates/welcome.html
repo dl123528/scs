@@ -1,0 +1,41 @@
+<!-- welcome.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>환영합니다</title>
+</head>
+<body>
+  <h1>🎉 관리자님 환영합니다!</h1>
+  <div id="loginBox">
+  <form onsubmit="check_admin(event)">
+    <input id="username" name="username" type="text" placeholder="아이디" required><br>
+    <input id="password" name="password" type="password" placeholder="비밀번호" required><br>
+    <button type="submit">로그인</button>
+  </form>
+</div>
+
+<script>
+  function check_admin(event) {
+    event.preventDefault();
+
+    const id = "scs 토성 대흑점";
+    const pw = "9600";
+
+    const user_id = document.getElementById('username').value.trim();
+    const user_pw = document.getElementById('password').value.trim();
+
+    if (user_id === id && user_pw === pw) {
+      // ✅ ① 새 창으로 열기
+      window.open("index.html", "_blank");
+
+      // ✅ 또는 ② 현재 창에서 이동
+      // window.location.href = "welcome.html";
+    } else {
+      alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+    }
+  }
+</script>
+
+</body>
+</html>

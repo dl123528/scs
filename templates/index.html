@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DugOut.kr</title>
+</head>
+<body>
+    <h1>Welcome to DugOut.kr ⚾</h1>
+    <p>새로남 야구여 일어나라!!</p>
+
+<nav>
+    <a href="https://m.sports.naver.com/kbaseball/news">뉴스</a>
+    <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2025&tab=teamRank">순위</a>
+    <a href="https://m.sports.naver.com/kbaseball/schedule/index?date=2025-07-17">일정</a>
+    <a href="https://talks.naver.com/?frm=pcgnb&anchor=sports&category=BASEBALL_KOREA">채팅</a>
+</nav>
+
+
+<img src="{{ url_for('static', filename='image/야구장 사진.png') }}">
+
+<h2>댓글 남기기</h2>
+  <textarea id="commentInput" rows="4" cols="50" placeholder="댓글을 입력하세요..."></textarea><br>
+  <button onclick="addComment()">댓글 달기</button>
+
+  <div id="comments"></div>
+
+  <script>
+    function addComment() {
+      const input = document.getElementById('commentInput');
+      const text = input.value.trim();
+      if (text === "") {
+        alert("댓글을 입력하세요.");
+        return;
+      }
+
+      const commentDiv = document.createElement('div');
+      commentDiv.className = 'comment';
+      commentDiv.innerText = text;
+
+      document.getElementById('comments').prepend(commentDiv);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
